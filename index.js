@@ -2,6 +2,7 @@ import dotenv from 'dotenv'
 dotenv.config()
 import { Client, GatewayIntentBits } from 'discord.js'
 import events from './event.js'
+import "./express.js";
 
 const TOKEN = process.env.TOKEN
 
@@ -43,7 +44,11 @@ client.on('messageCreate', message => {
 
 events.on('alerted', () => {
     console.log('done')
-    chat.send('alert')
+    chat.send('banana')
+})
+
+events.on('inp', (inp) => {
+    chat.send(inp)
 })
 
 
