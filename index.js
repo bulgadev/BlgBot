@@ -24,6 +24,7 @@ client.once('ready', async () => {
     chat = await client.channels.fetch('1280205245024309283')
 
     sendmsg(chat)
+    
 })
 
 function sendmsg(chat) {
@@ -51,5 +52,12 @@ events.on('inp', (inp) => {
     chat.send(inp)
 })
 
+events.on('dm', (dmm, user) => {
+    client.users.send(user, dmm);
+})
+
+events.on('pe', () => {
+    client.users.send('650497569230684181', 'Manda foto do pé');
+})
 
 client.login(TOKEN)

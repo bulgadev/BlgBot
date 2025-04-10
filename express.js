@@ -25,6 +25,18 @@ app.post('/userinp', (req, res) => {
   res.redirect('/')
 })
 
+app.post('/pe', (req, res) => {
+  events.emit('pe')
+  res.redirect('/')
+})
+
+app.post('/dminp', (req, res) => {
+  const dmm = req.body.DmInp
+  const user = req.body.dm
+  events.emit('dm', dmm, user)
+  res.redirect('/')
+})
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
